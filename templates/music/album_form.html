@@ -51,6 +51,17 @@
     </div>
 </div>
 {% else %}
-<p>{% trans 'ВЫ НЕ ВОШЛИ В АККАУНТ' %}</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>{% trans 'ВЫ НЕ ВОШЛИ В АККАУНТ' %}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endif %} 
 {% endblock %}
