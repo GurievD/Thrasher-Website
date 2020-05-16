@@ -119,23 +119,27 @@ class UserFormView(View):
         return render(request, 'music/registration_form.html', {'form': form})
     
     def post(self, request):
-        form = self.form_class(request.POST or None)
+        if request.method == 'POST':
+            form = self.form_class(request.POST or None)
 
-        if form.is_valid():
-            user = form.save(commit=False)
+            if form.is_valid():
+                user = form.save(commit=False)
 
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user.is_staff = True
-            user.set_password(password)
-            user.save()
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password']
+                user.is_staff = True
+                user.set_password(password)
+                user.save()
 
-            user = authenticate(user=username, password=password)
+                user = authenticate(user=username, password=password)
 
-            if user is not None:
-                if user.is_staff:
-                    login(request, user)
-            return redirect('index')
+                if user is not None:
+                    if user.is_staff:
+                        login(request, user)
+                return redirect('index')
+        else:
+            form = self.form_class()
+
 
         return render(request, self.template_name, {'form': form})
 
