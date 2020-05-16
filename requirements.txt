@@ -19,7 +19,7 @@ Pillow==7.1.1
 polib==1.1.0
 Pygments==2.2.0
 pytz==2019.3
-requests==2.18.1
+requests==2.20.0
 six==1.10.0
 soupsieve==2.0
 sqlparse==0.3.1
