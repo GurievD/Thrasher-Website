@@ -1,0 +1,77 @@
+{% extends 'music/base.html' %}
+
+{% block body %}
+
+{% block add %}
+{% endblock %}
+
+{% block song %}
+{% endblock %}
+
+
+
+{% block searchbar %}
+{% endblock %}
+
+{% block mybody %}
+{% endblock %}
+{% block review_searchbar %}
+{% endblock %}
+{% block review %}
+{% endblock %}
+
+
+<body id="play">
+        <div class="slider">
+
+            <div class="slide active" style="background-image: url('/static/images/1162439.jpg')"></div>
+
+            <div class="slide" style="background-image: url('/static/images/136260.jpg')"></div>
+
+            <div class="slide" style="background-image: url('/static/images/slayer-518c79fccb048.jpg')"></div>
+
+            <div class="slide" style="background-image: url('/static/images/99623-judas-priest-classic-heavy-metal.jpg')"></div>
+
+            <div class="slide" style="background-image: url('/static/images/253363.jpg')"></div>
+            
+            <div class="slide" style="background-image: url('/static/images/iron-maiden-union-jack-bruce-dickinson-band-wallpaper-f920187da16afd4b8607183f4091264d.jpg')"></div>
+
+            <div class="slide" style="background-image: url('/static/images/yCaPefcEtJY2tUj2PbCrCC.jpg')"></div>
+
+        </div>
+
+        <script>
+            const slides = document.querySelector('.slider').children;
+            let index = 0;
+
+            function nextSlide() {
+                if (index == slides.length-1) {
+                    index = 0;
+                }
+                else {
+                    index++;
+                }
+                changeSlide();
+            }
+
+            function changeSlide() {
+                for(let i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove("active");
+                }
+
+                slides[index].classList.add("active");
+
+            }
+
+            function autoPlay() {
+                nextSlide();
+            }
+
+            let timer = setInterval(autoPlay, 5000);
+
+
+        </script>
+
+</body>
+
+{% endblock %}

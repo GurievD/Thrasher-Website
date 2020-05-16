@@ -1,0 +1,101 @@
+{% extends 'music/base.html' %}
+{% load i18n %}
+
+{% block body %}
+
+{% block l %}<li class="active">{% endblock %}
+
+{% block add %}
+
+{% endblock %}
+
+{% block searchbar %}
+{% endblock %}
+
+{% block song %}
+
+{% endblock %}
+{% block review_searchbar %}
+{% endblock %}
+{% block review %}
+{% endblock %}
+    <div>
+    <div class="container review wha">
+            <h2>{{review.review_artist}}</h2>
+            <h2>{{review.review_title}}</h2>
+            <table class="table table-hover">
+
+                <tbody>
+                    <img width="350px" class="card-img-top img-responsive" class="myimg" src="{{ review.review_logo }}" alt="" />
+                </tbody>
+                <br/>
+
+                <tbody>
+                    <br/>
+
+                </tbody>
+            </table>
+      </div>
+
+
+
+  <div class="container review2 wha">
+    <table class="table table-hover">
+
+        <br/>
+
+        <tbody>
+
+            <span>{{review.review_text}}</span>
+
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+
+
+
+
+  <div class="container review3 wha">
+    <span>
+        <h2>{% trans 'Комментарии:' %} 
+        </h2>
+       <h2><a href="{% url 'reviewpost-add' review.id %}" class="somea">{% trans 'Добавить комментарий' %}</a></h2>
+    </span>
+        <br/>
+    <table class="table table-hover">
+
+        <br/>
+
+        <tbody>
+            {% for comment in review.reviewcomment_set.all %}
+                <div class="comment">
+                    <span>
+                      <div class="date">{{ comment.created_date }}</div>
+                      <strong>{{ comment.author }}</strong>: {{ comment.text }}
+                    </span>
+                    <h4>
+                      <a href="{% url 'reviewpost-update' comment.id %}"  class="btn btn-primary btn-sm3" ><i class="glyphicon glyphicon-pencil"></i>&nbsp; {% trans 'Изменить' %}</a>
+                      <a href="{% url 'reviewpost-delete' comment.id %}"  class="btn btn-primary btn-sm3" ><i class="glyphicon glyphicon-fire"></i>&nbsp; {% trans 'Удалить' %}</a>
+                    </h4>
+                </div>
+                <br>
+
+            {% empty %}
+                <p>{% trans 'Пока нет ни одного комментария :(' %} </p>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thrasher</title>
+    {% load i18n %}
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/testfile2.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'music/js/main.js' %}"></script>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <script style="display: none;"></script>
+</head>
+
+{% block mybody %}
+<body class="mybody">
+    
+</body>
+{% endblock %}
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index2' %}"><span class="thrash-logo">{% trans 'Thrasher' %}</span></a>
+            </div>
+    
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <ul class="nav navbar-nav">
+                    {% block alb %}<li class="">{% endblock %}
+                        <a href="{% url 'index' %}" >
+                            <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Альбомы' %}
+                        </a>
+                    </li>
+                    {% block li %}<li class="">{% endblock %}
+                        <a href="{% url 'loud' %}">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Новости' %}
+                        </a>
+                    </li>
+
+                    {% block l %}<li class="">{% endblock %}
+                        <a href="{% url 'revindex' %}">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Рецензии' %}
+                        </a>
+                    </li>
+                </ul>
+                
+                {% block searchbar %}
+                <form class="navbar-form navbar-left" id="myForm" role="search" method="get" action="{% url 'index' %}">
+                    <div class="form-group">
+                        <input type="search" id="myField" class="form-control" placeholder="{% trans 'Поиск' %}" aria-label="Поиск" name="search" value="{{ request.GET.search }}">
+                    </div>
+                    <button type="submit" id="myButton" class="btn btn-default">{% trans 'Поиск' %}</button>
+                </form>
+                {% endblock %}
+
+                {% block review_searchbar %}
+                <form class="navbar-form navbar-left" id="myForm" role="search" method="get" action="{% url 'revindex' %}">
+                    <div class="form-group">
+                        <input type="search" id="myField" class="form-control" placeholder="{% trans 'Поиск' %}" aria-label="Поиск" name="search" value="{{ request.GET.search }}">
+                    </div>
+                    <button type="submit" id="myButton" class="btn btn-default">{% trans 'Поиск' %}</button>
+                </form>
+                {% endblock %}
+                
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li class="">
+                        <a href="">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Добро пожаловать' %}, {{user.get_username}}!
+                        </a>
+                    </li>
+                    {% else %}
+                    {% block log %}
+                    <li class="">
+                        <a href="{% url 'login' %}">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Вход' %}
+                        </a>
+                    </li>
+                    {% endblock %}
+
+                    {% block reg %}
+                    <li class="">
+                        <a href="{% url 'register' %}">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Регистрация' %}
+                        </a>
+                    </li>
+                    {% endblock %}
+                    {% endif %}
+                    
+                    {% if user.is_authenticated %}
+
+                    {% block add %}
+                    <li class="">
+                        <a href="{% url 'album-add' %}">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Добавить альбом' %}
+                        </a>
+                    </li>
+                    {% endblock %}
+
+                    {% block review %}
+                    <li class="">
+                        <a href="{% url 'review-add' %}">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Добавить рецензию' %}
+                        </a>
+                    </li>
+                    {% endblock %}
+                    
+                    {% block song %}
+                    {% include 'music/songblock.html' %}
+                    {% endblock %}
+                    {% endif %}
+
+                    <li class="">
+                        <a href="{% url 'logout' %}">
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;
+                            {% trans 'Выйти' %}
+                        </a>
+                    </li>
+                    <form class="navbar-form navbar-left" action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select
+                            name="language" class="form-control"> {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                        selected{% endif %}> {{ language.name_local }} ({{ language.code }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" class="btn btn-default" value="{% trans 'Go' %}"/>
+                    </form>
+                </ul>
+                
+            </div>
+    
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+
+</body>
+
+<script>
+    // $('#myField').on('input',function(event){
+    //     $('#myForm').submit()
+    //     $('#myField').focus();
+
+    //     event.preventDefault();
+
+
+    // });
+  </script>
+
+  <script>
+    var Timeout; // initialize a variable
+    $(document).ready(function (event) {
+        $('input#myField').on('input',function (event) {
+            var txtbox = $(this); // copy of this object for further usage
+
+            if (Timeout) //check if timeout not null clear it
+            clearTimeout(Timeout);
+            Timeout = setTimeout(function (event) { // set timeout for 1 second again
+            
+            $('#myForm').submit();
+            }, 2000);
+        });
+    });
+  </script>
+
+</html>

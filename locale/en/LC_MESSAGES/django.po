@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-14 11:05+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\music\album_form.html:42 .\templates\music\login.html:54
+#: .\templates\music\registration_form.html:37
+msgid "Подтвердить"
+msgstr "Submit"
+
+#: .\templates\music\album_form.html:54
+msgid "ВЫ НЕ ВОШЛИ В АККАУНТ"
+msgstr "YOU ARE NOT LOGGED IN"
+
+#: .\templates\music\base.html:34
+msgid "Thrasher"
+msgstr "Thrasher"
+
+#: .\templates\music\base.html:42
+msgid "Альбомы"
+msgstr "Albums"
+
+#: .\templates\music\base.html:48
+msgid "Новости"
+msgstr "News"
+
+#: .\templates\music\base.html:55
+msgid "Рецензии"
+msgstr "Reviews"
+
+#: .\templates\music\base.html:63 .\templates\music\base.html:65
+#: .\templates\music\base.html:72 .\templates\music\base.html:74
+msgid "Поиск"
+msgstr "Search"
+
+#: .\templates\music\base.html:83
+msgid "Добро пожаловать"
+msgstr "Welcome"
+
+#: .\templates\music\base.html:91
+msgid "Вход"
+msgstr "Log in"
+
+#: .\templates\music\base.html:100
+msgid "Регистрация"
+msgstr "Sign up"
+
+#: .\templates\music\base.html:112
+msgid "Добавить альбом"
+msgstr "Add an album"
+
+#: .\templates\music\base.html:121
+msgid "Добавить рецензию"
+msgstr "Add a review"
+
+#: .\templates\music\base.html:134
+msgid "Выйти"
+msgstr "Log out"
+
+#: .\templates\music\base.html:148
+msgid "Вперёд"
+msgstr "Go"
+
+#: .\templates\music\condition.html:24
+msgid "Исполнитель:"
+msgstr "Artist:"
+
+#: .\templates\music\condition.html:24
+msgid "Альбом:"
+msgstr "Album:"
+
+#: .\templates\music\condition.html:24
+msgid "Жанр:"
+msgstr "Genre:"
+
+#: .\templates\music\condition.html:29
+msgid "Песни"
+msgstr "Songs"
+
+#: .\templates\music\condition.html:34
+msgid "Песня"
+msgstr "Song"
+
+#: .\templates\music\condition.html:35
+msgid "Тип"
+msgstr "Type"
+
+#: .\templates\music\condition.html:36
+msgid "Любимая"
+msgstr "Favorite"
+
+#: .\templates\music\condition.html:37
+msgid "Аудиодорожка"
+msgstr "Audiotrack"
+
+#: .\templates\music\condition.html:38
+msgid "Действие"
+msgstr "Action"
+
+#: .\templates\music\condition.html:90 .\templates\music\revparam.html:63
+msgid "Комментарии:"
+msgstr "Comments"
+
+#: .\templates\music\condition.html:92 .\templates\music\revparam.html:65
+msgid "Добавить комментарий"
+msgstr "Add a comment"
+
+#: .\templates\music\condition.html:104 .\templates\music\index.html:35
+#: .\templates\music\review.html:34 .\templates\music\revparam.html:80
+msgid "Изменить"
+msgstr "Edit"
+
+#: .\templates\music\condition.html:105 .\templates\music\index.html:36
+#: .\templates\music\review.html:35 .\templates\music\revparam.html:81
+msgid "Удалить"
+msgstr "Remove"
+
+#: .\templates\music\condition.html:111 .\templates\music\revparam.html:87
+msgid "Пока нет ни одного комментария :("
+msgstr "There are no comments yet :("
+
+#: .\templates\music\index.html:34
+msgid "Альбом"
+msgstr "Album"
+
+#: .\templates\music\index.html:47 .\templates\music\review.html:46
+msgid "Нет альбомов"
+msgstr "There are no albums yet"
+
+#: .\templates\music\login.html:30
+#: .\templates\music\password_reset_complete.html:23
+msgid "Войти"
+msgstr "Sign in"
+
+#: .\templates\music\login.html:38
+msgid "Имя:"
+msgstr "Name"
+
+#: .\templates\music\login.html:46
+msgid "Пароль:"
+msgstr "Password"
+
+#: .\templates\music\login.html:60
+msgid "Забыли пароль?"
+msgstr "Forgot a password?"
+
+#: .\templates\music\login.html:60 .\templates\music\login.html:63
+msgid "Перейдите по этой ссылке"
+msgstr "Follow this link"
+
+#: .\templates\music\login.html:60
+msgid "чтобы сменить пароль."
+msgstr "to change password"
+
+#: .\templates\music\login.html:63
+msgid "Нет аккаунта?"
+msgstr "Don't have an account yet?"
+
+#: .\templates\music\login.html:63
+msgid "чтобы зарегистрироваться."
+msgstr "to sign up"
+
+#: .\templates\music\password_reset.html:28
+msgid "Сброс пароля"
+msgstr "Reset password"
+
+#: .\templates\music\password_reset.html:32
+msgid "Запросить сброс пароля"
+msgstr "Request a password reset"
+
+#: .\templates\music\password_reset_complete.html:21
+msgid "Пароль был изменён"
+msgstr "The password was changed"
+
+#: .\templates\music\password_reset_confirm.html:28
+msgid "Cброс пароля"
+msgstr "Reset password"
+
+#: .\templates\music\password_reset_confirm.html:32
+msgid "Сбросить пароль"
+msgstr "Reset password"
+
+#: .\templates\music\password_reset_done.html:21
+msgid ""
+"Письмо с инструкциями по восстановлению пароля было отправлено на вашу почту"
+msgstr "An email with instructions for password recovery has been sent to your email address"
+
+#: .\templates\music\registration_form.html:28
+msgid "Создать аккаунт"
+msgstr "Create an account"
+
+#: .\templates\music\songblock.html:7
+msgid "Добавить песню"
+msgstr "Add a song"

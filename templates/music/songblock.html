@@ -1,0 +1,9 @@
+{% load i18n %}
+
+
+<li class="">
+    <a href="{% url 'song-add' album.id %}">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+        {% trans 'Добавить песню' %}
+    </a>
+</li>

@@ -1,0 +1,45 @@
+{% extends 'music/base.html' %}
+{% load i18n %}
+
+{% block body %}
+
+{% block li %}<li class="active">{% endblock %}
+  
+{% block add %}
+{% endblock %}
+
+{% block song %}
+
+{% endblock %}
+
+{% block review %}
+{% endblock %}
+
+{% block searchbar %}
+{% endblock %}
+{% block review_searchbar %}
+{% endblock %}
+  <body>
+
+
+
+        {% for con, exc, more, img, srcset in list %}
+        <div class="imgclass">
+
+        <h1 class="aligncenter someclass">{{con}}</h1>
+        <p class="pclass">{{exc}}</p>
+        <img src="{{img}}" alt=""  class="imgcenter">
+        <p class="aligncenter pclass">{{more}}</p>
+        </div>
+
+        {% endfor %}
+
+
+
+
+
+
+  </body>
+
+{% endblock %}
+

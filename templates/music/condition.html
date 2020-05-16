@@ -1,0 +1,161 @@
+{% extends 'music/base.html' %}
+{% load i18n %}
+
+{% block body %}
+
+{% block alb %}<li class="active">{% endblock %}
+
+{% block add %}
+
+{% endblock %}
+
+{% block searchbar %}
+{% endblock %}
+{% block review_searchbar %}
+{% endblock %}
+{% block review %}
+{% endblock %}
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12 col-md-4 ty">
+      <figure class="figure">
+          <img src="{{album.album_logo}}" width="300px" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+          <figcaption class="figure-caption"><h3>{% trans 'Исполнитель:' %} {{ album.artist }}</h3> <h3>{% trans 'Альбом:' %} {{ album.album_title }}</h3> <h3>{% trans 'Жанр:' %} {{ album.genre }}</h3></figcaption>
+      </figure>
+    </div>
+
+    <div class="col-sm-12 col-md-8 ty2">
+      <h2>{% trans 'Песни' %} "{{album.artist}}": 
+      </h2>
+      <table class="table table-hover">
+          <thead class="thead-dark">
+              <tr>
+                  <th><h3>{% trans 'Песня' %}</h3></th>
+                  <th><h3>{% trans 'Тип' %}</h3></th>
+                  <th><h3>{% trans 'Любимая' %}</h3></th>
+                  <th><h3>{% trans 'Аудиодорожка' %}</h3></th>
+                  <th><h3>{% trans 'Действие' %}</h3></th>
+
+              </tr>
+          </thead>
+          <tbody>
+              {% for song in album.song_set.all %}
+              <tr>
+                  <td><h4><div class="tit">{{ song.song_title }}
+                  </div></h4></td>
+                  <td><h4><div class="tit">.{{ song.file_type }}</div></h4></td>
+                  <td>
+                    <div class="tit">
+                      <h4>
+                    {% if song.is_favorite %}
+                      <img src="http://i.imgur.com/b9b13Rd.png" alt=""> 
+                    {% endif %}
+                    </h4>
+
+                    
+
+                    </div>
+
+                  </td>
+                  <td>
+                      <div class="btn-group">
+                        <h4>
+                              <audio controls>
+                                <source src="{{song.audiotrack.url}}" type="audio/mpeg">
+                             </audio>
+                        </h4>
+                      </div>
+                  </td>
+
+                  <td>
+                    <h4>
+                    <a href="{% url 'song-update' song.id %}"  class="btn btn-primary btn-sm3" ><i class="glyphicon glyphicon-pencil"></i>&nbsp;</a>
+                    <a href="{% url 'song-delete' song.id %}"  class="btn btn-primary btn-sm3" ><i class="glyphicon glyphicon-fire"></i>&nbsp;</a>
+                    </h4>
+                  </td>
+              </tr>
+              {% endfor %}
+
+          </tbody>
+      </table>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="container wha">
+  <span>
+      <h2>{% trans 'Комментарии:' %} 
+      </h2>
+     <h2><a href="{% url 'post-add' album.id %}" class="somea">{% trans 'Добавить комментарий' %}</a></h2>
+  </span>
+      <br/>
+      <table class="table table-hover">
+          <tbody>
+              {% for comment in album.comment_set.all %}
+                  <div class="comment">
+                      <span>
+                        <div class="date">{{ comment.created_date }}</div>
+                        <strong>{{ comment.author }}</strong>: {{ comment.text }}
+                      </span>
+                      <h4>
+                        <a href="{% url 'post-update' comment.id %}"  class="btn btn-primary btn-sm3" ><i class="glyphicon glyphicon-pencil"></i>&nbsp; {% trans 'Изменить' %}</a>
+                        <a href="{% url 'post-delete' comment.id %}"  class="btn btn-primary btn-sm3" ><i class="glyphicon glyphicon-fire"></i>&nbsp; {% trans 'Удалить' %}</a>
+                      </h4>
+                  </div>
+                  <br>
+
+              {% empty %}
+                  <p>{% trans 'Пока нет ни одного комментария :(' %} </p>
+              {% endfor %}
+              
+          </tbody>
+      </table>
+</div>
+
+
+
+<!-- <h2>Список песен группы "{{album.artist}}": </h2>
+
+<div>
+    <ul>
+    {% for mysong in album.song_set.all %}
+    <li><a class="my" onclick="action('{{mysong.id}}')">{{mysong}}</a></li>
+    <div id="{{mysong.id}}" class="q">
+        <img src="{{album.album_logo}}" width="300px"><br/>
+        <h2>Песня: {{mysong.song_title}}</h2>
+        <h2>Исполнитель: {{album.artist}}</h2>
+        <h2>
+        <audio controls>
+                <source src="{{mysong.audiotrack.url}}" type="audio/mpeg">
+        </audio>
+        </h2>
+    </div>
+    {% endfor %}
+    </ul>
+</div>
+
+
+
+<script>
+    function action(id) {
+      var added_item_button = document.getElementById(id);
+      var actualDisplay = getComputedStyle(added_item_button).display;
+
+      if (actualDisplay == 'none') {
+        added_item_button.style.display = 'block';
+      } else {
+        added_item_button.style.display = 'none';
+      }
+    }
+</script> -->
+
+
+
+
+{% endblock %}
+
+
+
