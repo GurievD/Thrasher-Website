@@ -25,7 +25,7 @@ SECRET_KEY = '!49fv75e3&1!(jwbj!o+b!i6(mlkp4#$me50hi%mek$#2l)dfq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'powerful-ocean-95938.herokuapp.com', ]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sheltered-coast-41017.herokuapp.com', ]
 
 
 # Application definition

@@ -255,3 +255,4 @@ class ReviewPostDelete(DeleteView):
         comment = self.object.post 
         return reverse_lazy('revparam', kwargs={'pk': comment.id})
 
+#push
