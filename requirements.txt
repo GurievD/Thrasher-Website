@@ -8,7 +8,7 @@ curtsies==0.2.11
 Django==3.0.4
 django-autotranslate==1.1.0
 django-contrib-comments==1.9.2
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 futures==3.1.1
 goslate==1.5.1
 gunicorn==20.0.4
