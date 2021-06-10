@@ -5,7 +5,7 @@ bs4==0.0.1
 certifi==2017.4.17
 chardet==3.0.4
 curtsies==0.2.11
-Django==3.0.4
+Django==3.1.12
 django-autotranslate==1.1.0
 django-contrib-comments==1.9.2
 djangorestframework==3.11.0
